@@ -1,0 +1,9 @@
+Hello!
+make a Cube called Fido
+set color of Fido to 1.0, 0.0, 1.0
+make me a Sphere called Biff
+set color of Biff to 0.0, 0.0, 1.0
+move Fido by 4, 0, 0
+parent Fido to Biff
+rotate Biff by 45.0, 45.0, 45.0
+Thanks!
