@@ -1,0 +1,15 @@
+Hello!
+make me a Sphere called s1
+make me a Shader called White
+set color on White to 0.0, 0.0, 0.0
+assign White to s1
+make me a Sphere called s2
+assign White to s2
+make me a Cube called Cube1
+make me a Shader called Black
+set color on Black to 1.0, 1.0, 1.0
+assign Black to Cube1
+move s1 by -1.0, 1.0, 0.0
+move s2 by 1.0, 1.0, 0.0
+move Cube1 by 0.0, -1.0, 0.0
+Thanks!
