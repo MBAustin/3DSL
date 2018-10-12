@@ -1,0 +1,13 @@
+PROGRAM     := STATEMENT*
+STATEMENT   := DEC | SET | USE | PRINT | VALUE
+DEC         := "new" NAME
+SET         := "set" NAME VALUE
+USE         := "get" NAME
+PRINT       := "print" USE
+VALUE       := 0-9+
+PROCDEC     := "def" NAME BLOCK
+BLOCK       := "[" STATEMENT* "]"
+
+new x
+set x 3
+print get x
