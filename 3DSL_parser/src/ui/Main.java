@@ -20,7 +20,7 @@ public class Main {
         List<String> literals = Arrays.asList("open", "new", "scene", "store", "as", "make", "a", "an", "called", "move", "rotate", "scale",
         "to", "by", "set", "of", "attach", "cut", "out", "from", "group", "for", "each", "function", "takes", "call",
                 "clone");
-        Tokenizer.makeTokenizer("mattTest.3dsl",literals);
+        Tokenizer.makeTokenizer("reedTest.3dsl",literals);
 
 
 
