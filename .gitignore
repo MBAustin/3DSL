@@ -1,1 +1,6 @@
-.idea
+/3DSL_parser/.idea/*
+/3DSL_parser/out/*
+!3DSL_parser/.idea/modules.xml
+!3DSL_parser/.idea/misc.xml
+!3DSL_parser/.idea/runConfigurations
+/3DSL_parser/out/
