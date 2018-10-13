@@ -1,0 +1,4 @@
+# this is a comment
+rotate MyCone by (1,2,3)
+rotate ThisObject by (1,2,3)
+     rotate  Wow  by         (154.2346,25.23,3.456)
