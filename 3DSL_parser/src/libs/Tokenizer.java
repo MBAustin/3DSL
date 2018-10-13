@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
+import ui.Main;
 
 public class Tokenizer {
 
@@ -37,9 +38,9 @@ public class Tokenizer {
 
         for (int i = 0; i < tokens.length; i++) {
             if (tokens[i].equals("%newLine%")) {
-                tokens[i] = "\\n";
+                tokens[i] = Main.NEWLINE;
             } else if (tokens[i].equals("\t")) {
-                tokens[i] = "\\t";
+                tokens[i] = Main.TAB;
             } else {
                 // Do nothing
             }

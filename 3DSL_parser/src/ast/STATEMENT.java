@@ -4,7 +4,9 @@ import libs.Node;
 
 public  abstract class STATEMENT extends Node {
     public static STATEMENT getSubStatement(){
-
+        if (tokenizer.checkToken("#")){
+            return new COMMENT();
+        }
         if (tokenizer.checkToken("store")){
             return new STORE();
         }

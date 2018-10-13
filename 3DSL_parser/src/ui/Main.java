@@ -12,6 +12,8 @@ import java.util.Map;
 
 public class Main {
     public static Map<String,Object> symbolTable = new HashMap<>();
+    public static final String NEWLINE = "%newLine%";
+    public static final String TAB = "%tab%";
 
     public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
 
