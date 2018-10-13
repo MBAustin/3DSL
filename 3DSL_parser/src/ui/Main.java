@@ -17,10 +17,10 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
 
-        List<String> literals = Arrays.asList("store", "as", "make", "a", "an", "called", "move", "rotate", "scale",
+        List<String> literals = Arrays.asList("open", "new", "scene", "store", "as", "make", "a", "an", "called", "move", "rotate", "scale",
         "to", "by", "set", "of", "attach", "cut", "out", "from", "group", "for", "each", "function", "takes", "call",
                 "clone");
-        Tokenizer.makeTokenizer("marktest.tvar",literals);
+        Tokenizer.makeTokenizer("mattTest.3dsl",literals);
 
 
 

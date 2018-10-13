@@ -8,7 +8,7 @@ public  abstract class STATEMENT extends Node {
             return new COMMENT();
         }
         if (tokenizer.checkToken("store")){
-            return new STORE();
+            return new DEC();
         }
         if (tokenizer.checkToken("make")){
             return new MAKE();
@@ -38,16 +38,13 @@ public  abstract class STATEMENT extends Node {
             return new FOREACH();
         }
         if (tokenizer.checkToken("function")){
-            return new DEC();
+            return new PROCDEC();
         }
         if (tokenizer.checkToken("call")){
             return new PROCCALL();
         }
         if (tokenizer.checkToken("clone")){
             return new CLONE();
-        }
-        if (tokenizer.checkToken("call")){
-            return new PROCCALL();
         }
         else return null;
     }

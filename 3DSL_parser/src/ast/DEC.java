@@ -7,17 +7,20 @@ import java.io.UnsupportedEncodingException;
 
 public class DEC extends STATEMENT {
     private String name;
+    private Object value;
 
     @Override
     public void parse() {
-        tokenizer.getAndCheckNext("new");
+        tokenizer.getAndCheckNext("store");
+        value = tokenizer.getNext();
+        tokenizer.getAndCheckNext("as");
         name = tokenizer.getNext();
     }
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        System.out.println("Putting "+this.name+" into symbol table");
-        Main.symbolTable.put(name,"");
+        System.out.println("Putting "+this.value+" into symbol table as "+this.name);
+        Main.symbolTable.put(name,value);
         return null;
     }
 
