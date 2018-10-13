@@ -1,0 +1,20 @@
+# Making a spiral of cones:
+open new scene
+function ConeStep takes object, color:
+	move Object by (1,0,0)
+	rotate Object by (30,0,0)
+	scale Object by (0.8, 0.8, 0.8)
+	set color of Object to (random, random, random)
+	end
+ConeStep with:
+	object MyCone
+	color Blue
+make a Cone called MyCone with:
+	color (255,0,0)
+	position (0,0,0)
+	scale (2,2,2)
+scale MyCone by (1,1,1)
+clone MyCone as ConeGroup with:
+	iterations  8
+	step  ConeStep
+save scene as MyScene

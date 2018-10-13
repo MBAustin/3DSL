@@ -14,10 +14,14 @@ public class Main {
     public static Map<String,Object> symbolTable = new HashMap<>();
 
     public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
+
         List<String> literals = Arrays.asList("store", "as", "make", "a", "an", "called", "move", "rotate", "scale",
         "to", "by", "set", "of", "attach", "cut", "out", "from", "group", "for", "each", "function", "takes", "call",
                 "clone");
-        Tokenizer.makeTokenizer("input.tvar",literals);
+        Tokenizer.makeTokenizer("marktest.tvar",literals);
+
+
+
         PROGRAM p = new PROGRAM();
         p.parse();
         p.evaluate();
