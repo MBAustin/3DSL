@@ -33,7 +33,7 @@ public class Tokenizer {
         tokenizedProgram = tokenizedProgram.replace("\t","\t ");
         tokenizedProgram = tokenizedProgram.replace("\n"," %newLine% ");
 
-        String [] tokens = tokenizedProgram.split("[ ]+");
+        tokens = tokenizedProgram.split("[ ]+");
 
         for (int i = 0; i < tokens.length; i++) {
             if (tokens[i].equals("%newLine%")) {
