@@ -11,28 +11,37 @@ public class BLOCK extends STATEMENT {
     List<STATEMENT> statements;
     DEC param;
     String retval;
+    Boolean function = false;
+    Boolean foreach = false;
 
     @Override
     public void parse() {
-        tokenizer.getAndCheckNext("with");
-        param = new DEC();
-        param.parse();
-        tokenizer.getAndCheckNext("start");
+        if (function) {
+            tokenizer.getAndCheckNext("takes");
+            // TODO parse params for function dec
+            param = new DEC();
+            param.parse();
+        }
+
+
         statements = new ArrayList<>();
-        while (!tokenizer.checkToken("return")){
+        while (!isEndOfBlock()){
             STATEMENT s = STATEMENT.getSubStatement();
             statements.add(s);
             s.parse();
         }
-        tokenizer.getAndCheckNext("return");
-        retval = tokenizer.getNext();
-        tokenizer.getAndCheckNext("end");
+//        tokenizer.getAndCheckNext("return");
+//        retval = tokenizer.getNext();
+//        tokenizer.getAndCheckNext("end");
     }
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        System.out.println("You should never have reached this!");
-        return null;
+        String output = "\t";
+        for (STATEMENT s : statements){
+            output = output + "\t" + s.evaluate();
+        }
+        return output;
     }
 
     public String evaluate(String arg) throws FileNotFoundException, UnsupportedEncodingException {
@@ -42,6 +51,18 @@ public class BLOCK extends STATEMENT {
             s.evaluate();
         }
         return retval;
+    }
+
+    private Boolean isEndOfBlock() {
+        if (tokenizer.checkToken(Main.NEWLINE)) {
+            tokenizer.getNext();
+            if (tokenizer.checkToken(Main.TAB)) {
+                tokenizer.getNext();
+            } else {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
