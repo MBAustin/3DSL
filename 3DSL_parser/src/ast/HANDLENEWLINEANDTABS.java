@@ -5,17 +5,16 @@ import ui.Main;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 
-public class COMMENT extends STATEMENT {
+public class HANDLENEWLINEANDTABS extends STATEMENT {
 
     @Override
     public void parse() {
-        tokenizer.getAndCheckNext("#");
-        while(!tokenizer.checkToken(Main.NEWLINE)) {
-            tokenizer.getNext();
+        if (tokenizer.checkToken(Main.NEWLINE)) {
+            tokenizer.getAndCheckNext(Main.NEWLINE);
         }
-
-        System.out.println("Comment ended");
-
+        if (tokenizer.checkToken(Main.TAB)) {
+            tokenizer.checkToken(Main.TAB);
+        }
     }
 
     @Override
