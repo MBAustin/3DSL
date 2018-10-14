@@ -22,7 +22,7 @@ public class Main {
                 "clone");
 //        Tokenizer.makeTokenizer("reedTest.3dsl",literals);
 //        Tokenizer.makeTokenizer("mattTest.3dsl",literals);
-        Tokenizer.makeTokenizer("rhodaTest.3dsl",literals);
+        Tokenizer.makeTokenizer("markForTest.3dsl",literals);
 
 
 

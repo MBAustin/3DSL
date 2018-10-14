@@ -22,7 +22,7 @@ public class ATTACH extends STATEMENT {
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
 //        TODO Matt, can you do the maya python for this, attach object1 to object2. object2 is the parent.
         System.out.println("attach " + object1 + " to " + object2);
-        return null;
+        return "attach " + object1 + " to " + object2;
     }
 
 
