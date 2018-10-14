@@ -25,7 +25,7 @@ public class CUT extends STATEMENT {
         // TODO MATT can you do the python here. Cut object1 out of object2.
         // I think you mentioned it would make a 3rd invisible object and attach it to object2?
         System.out.println("Cut " + object1 + " out of " + object2);
-        return null;
+        return "Cut " + object1 + " out of " + object2;
     }
 
 }
