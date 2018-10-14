@@ -1,2 +1,6 @@
 # This is a comment:
-set Color of MyCube to Red
+set color of Object to (random,random,random) # TODO: doesn't work with (random, random, random)
+make an Cone called MyCone with:
+    height 3
+    radius 1
+    color (255,0,0)
