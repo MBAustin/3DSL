@@ -6,20 +6,24 @@ import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 
 public class ATTACH extends STATEMENT {
-    private String name;
+    private String object1;
+    private String object2;
+//    attach {OBJECT} to {OBJECT}
 
     @Override
     public void parse() {
-        tokenizer.getAndCheckNext("new");
-        name = tokenizer.getNext();
+        tokenizer.getAndCheckNext("attach");
+        object1 = tokenizer.getNext();
+        tokenizer.getAndCheckNext("to");
+        object2 = tokenizer.getNext();
     }
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        System.out.println("Putting "+this.name+" into symbol table");
-        Main.symbolTable.put(name,"");
+//        TODO Matt, can you do the maya python for this, attach object1 to object2. object2 is the parent.
+        System.out.println("attach " + object1 + " to " + object2);
         return null;
     }
 
-    public String getName(){return name;}
+
 }

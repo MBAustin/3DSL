@@ -1,0 +1,5 @@
+group Cone1 as Cones # Group of 1 cone lul
+group Cone2, Cone2, Cone3, Cone4 as Cones
+cut Cone2 out of Cone1
+attach Snake to Frog
+group Dragon, Lion, Goat as Chimera # Our language can make great monsters
