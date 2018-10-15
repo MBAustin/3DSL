@@ -10,6 +10,7 @@ public class CLONE extends STATEMENT {
     private String name;
     private Number iterations;
     private String step;
+    
 
     @Override
     public void parse() {
