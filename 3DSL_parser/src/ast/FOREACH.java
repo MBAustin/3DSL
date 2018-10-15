@@ -31,10 +31,7 @@ public class FOREACH extends STATEMENT {
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        // TODO Evaluate Block, we need to generate a foreach in python with the body
-        String pythonBlock = codeblock.evaluate();
-        System.out.println("for " + name + " in " + group + ":\n" + pythonBlock);
-        return "for " + name + " in " + group + ":\n" + pythonBlock;
+        return "for " + name +" in " + group + ":\n" + codeblock.evaluate();
     }
 
 

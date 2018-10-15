@@ -25,12 +25,16 @@ public class PROGRAM extends Node{
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
         writer = new PrintWriter("output.py", "UTF-8");
+        String outPut = "";
         for (STATEMENT s : statements){
+
             String output = s.evaluate();
             if (output != null) {
                 writer.println(output);
             }
+
         }
+
         writer.close();
         return null;
     }
