@@ -17,9 +17,9 @@ public class SET extends STATEMENT {
         object = tokenizer.getNext();
         tokenizer.getAndCheckNext("to");
         value = tokenizer.getNext();
-        if(tokenizer.checkToken(Main.NEWLINE)) {
-            tokenizer.getAndCheckNext(Main.NEWLINE);
-        }
+//        if(tokenizer.checkToken(Main.NEWLINE)) {
+//            tokenizer.getAndCheckNext(Main.NEWLINE);
+//        }
     }
 
     @Override
