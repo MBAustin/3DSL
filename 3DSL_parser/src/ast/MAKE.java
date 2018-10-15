@@ -28,7 +28,7 @@ public class MAKE extends STATEMENT {
                 tokenizer.getAndCheckNext(Main.NEWLINE);
                 String property = tokenizer.getNext();
                 String value = tokenizer.getNext();
-                if (value.charAt(0) == '('){
+                if (value.charAt(0) == '(') {
                     // todo: convert to vector
                 }
                 propertyMap.put(property, value);
@@ -44,5 +44,4 @@ public class MAKE extends STATEMENT {
         return null;
     }
 
-    public String getName(){return name;}
 }
