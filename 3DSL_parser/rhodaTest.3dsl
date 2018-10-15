@@ -1,6 +1,17 @@
 # This is a comment:
-set color of Object to (random,random,random) # TODO: doesn't work with (random, random, random)
-make an Cone called MyCone with:
-    height 3
-    radius 1
-    color (255,0,0)
+set color of Object to (random,random,random)
+function ConeStep takes object, color:
+	move Object by (1,0,0)
+	rotate Object by (30,0,0)
+	scale Object by (0.8,0.8,0.8)
+	set color of Object to (1,2,3)
+call ConeStep with:
+	object MyCone
+	color Blue
+make a Cone called MyCone with:
+	color (255,0,0)
+	radius 1
+	height 3
+clone MyCone as ConeGroup with:
+	iterations  8
+	step  ConeStep
