@@ -10,6 +10,7 @@ import java.util.List;
 
 public class PROGRAM extends Node{
     private List<STATEMENT> statements = new ArrayList<>();
+    private PrintWriter writer;
 
     @Override
     public void parse() {
@@ -25,7 +26,10 @@ public class PROGRAM extends Node{
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
         writer = new PrintWriter("output.py", "UTF-8");
         for (STATEMENT s : statements){
-            s.evaluate();
+            String output = s.evaluate();
+            if (output != null) {
+                writer.println(output);
+            }
         }
         writer.close();
         return null;

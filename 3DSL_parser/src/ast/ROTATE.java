@@ -20,7 +20,6 @@ public class ROTATE extends STATEMENT {
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        writer.println("cmds.rotate("+vector.a+","+vector.b+","+vector.c+",'"+object+"')");
-        return null;
+        return "cmds.rotate("+vector.a+","+vector.b+","+vector.c+",'"+object+"')";
     }
 }
