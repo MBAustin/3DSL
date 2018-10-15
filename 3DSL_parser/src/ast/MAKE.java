@@ -26,12 +26,14 @@ public class MAKE extends STATEMENT {
         if(with.equals("with:")) {
             while (tokenizer.checkToken(Main.NEWLINE)){
                 tokenizer.getAndCheckNext(Main.NEWLINE);
-                String property = tokenizer.getNext();
-                String value = tokenizer.getNext();
-                if (value.charAt(0) == '('){
-                    // todo: convert to vector
+                if (tokenizer.checkToken("%tab%")) {
+                    tokenizer.getAndCheckNext(Main.TAB);
+                    String property = tokenizer.getNext();
+                    String value = tokenizer.getNext();
+                    propertyMap.put(property, value);
+                } else {
+                    break;
                 }
-                propertyMap.put(property, value);
             }
         }
         System.out.println(propertyMap);
@@ -39,7 +41,11 @@ public class MAKE extends STATEMENT {
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-//        System.out.println("Putting "+this.name+" into symbol table");
+        //        if (value.charAt(0) == '('){
+//            // todo: convert to vector
+//        }
+
+        //        System.out.println("Putting "+this.name+" into symbol table");
 //        Main.symbolTable.put(name,"");
         return null;
     }

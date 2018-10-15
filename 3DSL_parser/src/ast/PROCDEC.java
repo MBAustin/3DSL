@@ -4,25 +4,43 @@ import ui.Main;
 
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.ArrayList;
 
 public class PROCDEC extends STATEMENT {
-    private String name;
+    private String nameOfProc;
     private BLOCK codeblock;
     private STATEMENT retstmt;
-
+    private ArrayList<String> parameterList = new ArrayList<String>();
+//    function <name> takes <parameter>, …:
+//	<operation>
+//	...
 
     @Override
     public void parse() {
-        tokenizer.getAndCheckNext("def");
-        name = tokenizer.getNext();
-        tokenizer.checkToken(("with"));
+        tokenizer.getAndCheckNext("function");
+        nameOfProc = tokenizer.getNext();
+        tokenizer.getAndCheckNext("takes");
+        String next = tokenizer.getNext();
+        while (!next.contains(":")) {
+            next = next.substring(0, next.length() - 1);
+            parameterList.add(next);
+            next = tokenizer.getNext();
+        }
+
+        next = next.substring(0, next.length() - 1);
+        parameterList.add(next);
+
+        System.out.println(parameterList);
+
         codeblock = new BLOCK();
         codeblock.parse();
     }
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        Main.symbolTable.put(name,codeblock);
+//        Main.symbolTable.put(name,codeblock);
         return null;
     }
 }

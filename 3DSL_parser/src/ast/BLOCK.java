@@ -38,12 +38,17 @@ public class BLOCK extends STATEMENT {
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
         String output = "\t";
-        for (STATEMENT s : statements){
-            output = output + "\t" + s.evaluate();
+        for (STATEMENT s : statements) {
+            // Add tab for each newline
+            String temp = s.evaluate();
+            temp = temp.replace("\n", "\n\t");
+
+            output = output + temp;
         }
         return output;
     }
 
+//      Do we need this?
     public String evaluate(String arg) throws FileNotFoundException, UnsupportedEncodingException {
         param.evaluate();
         Main.symbolTable.put(param.getName(), arg);

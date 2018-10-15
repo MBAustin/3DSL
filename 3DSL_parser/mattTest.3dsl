@@ -1,2 +1,6 @@
 # this is a comment
-store 25 as butts
+make a Sphere called mySphere
+make a Cone called myCone
+make a Cube called myCube
+cut myCone out of mySphere
+attach mySphere to myCube
