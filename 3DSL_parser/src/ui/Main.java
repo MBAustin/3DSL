@@ -16,13 +16,9 @@ public class Main {
     public static final String TAB = "%tab%";
 
     public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
-
-        List<String> literals = Arrays.asList("open", "new", "scene", "store", "as", "make", "a", "an", "called", "move", "rotate", "scale",
-        "to", "by", "set", "of", "attach", "cut", "out", "from", "group", "for", "each", "function", "takes", "call",
-                "clone");
-//        Tokenizer.makeTokenizer("reedTest.3dsl",literals);
-//        Tokenizer.makeTokenizer("mattTest.3dsl",literals);
-        Tokenizer.makeTokenizer("markForTest.3dsl",literals);
+        Tokenizer.makeTokenizer("reedTest.3dsl");
+        // Tokenizer.makeTokenizer("mattTest.3dsl");
+        // Tokenizer.makeTokenizer("markForTest.3dsl");
 
 
 
