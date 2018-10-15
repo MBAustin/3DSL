@@ -1,7 +1,11 @@
 # this is a comment
 rotate MyCone by (1,2,3)
 rotate ThisObject by (1,2,3)
-     rotate  Wow  by         (154.2346,25.23,3.456)
+rotate Wow by (154.2346,25.23,3.456)
+call MyFunc with:
+    arg1 8
+    arg2 (1,2,3)
+    arg3 MyCube
 scale Wow by (3,2,1)
 move Wow by (8,8,8)
 move MyCone to Wow
