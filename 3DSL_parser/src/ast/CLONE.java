@@ -10,7 +10,11 @@ public class CLONE extends STATEMENT {
     private String name;
     private Number iterations;
     private String step;
-
+//    clone {OBJECT} as <name>
+//            Or
+//    clone {OBJECT} as <name> with:
+//          iterations 8
+//          step ConeStep
 
     @Override
     public void parse() {
@@ -18,6 +22,18 @@ public class CLONE extends STATEMENT {
         object = tokenizer.getNext();
         tokenizer.getAndCheckNext("as");
         name = tokenizer.getNext();
+
+        String with = tokenizer.getNext();
+        if(with.equals("with:")) {
+            tokenizer.getAndCheckNext(Main.NEWLINE);
+            tokenizer.getAndCheckNext(Main.TAB);
+            tokenizer.getAndCheckNext("iterations");
+            iterations = Integer.parseInt(tokenizer.getNext());
+            tokenizer.getAndCheckNext(Main.NEWLINE);
+            tokenizer.getAndCheckNext(Main.TAB);
+            tokenizer.getAndCheckNext("step");
+            step = tokenizer.getNext();
+        }
     }
 
     @Override
