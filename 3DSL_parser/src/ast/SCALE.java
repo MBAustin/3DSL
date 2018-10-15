@@ -1,25 +1,26 @@
 package ast;
 
+import libs.Vector;
 import ui.Main;
 
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 
 public class SCALE extends STATEMENT {
-    private String name;
+    private String object;
+    private Vector vector;
 
     @Override
     public void parse() {
-        tokenizer.getAndCheckNext("new");
-        name = tokenizer.getNext();
+        tokenizer.getAndCheckNext("scale");
+        object = tokenizer.getNext();
+        tokenizer.getAndCheckNext("by");
+        vector = tokenizer.getVector();
     }
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        System.out.println("Putting "+this.name+" into symbol table");
-        Main.symbolTable.put(name,"");
+        writer.println("cmds.scale("+vector.a+","+vector.b+","+vector.c+",'"+object+"')");
         return null;
     }
-
-    public String getName(){return name;}
 }

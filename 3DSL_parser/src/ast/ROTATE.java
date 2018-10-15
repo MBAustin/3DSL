@@ -16,7 +16,6 @@ public class ROTATE extends STATEMENT {
         object = tokenizer.getNext();
         tokenizer.getAndCheckNext("by");
         vector = tokenizer.getVector();
-        tokenizer.getAndCheckNext(Main.NEWLINE);
     }
 
     @Override

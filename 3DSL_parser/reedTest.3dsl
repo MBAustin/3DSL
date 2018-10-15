@@ -2,3 +2,6 @@
 rotate MyCone by (1,2,3)
 rotate ThisObject by (1,2,3)
      rotate  Wow  by         (154.2346,25.23,3.456)
+scale Wow by (3,2,1)
+move Wow by (8,8,8)
+move MyCone to Wow

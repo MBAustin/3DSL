@@ -60,6 +60,9 @@ public  abstract class STATEMENT extends Node {
         if (tokenizer.checkToken(Main.TAB)){
             return new HANDLENEWLINEANDTABS();
         }
-        else return null;
+        else {
+            System.out.println("Unknown command found: " + tokenizer.getNext());
+            return null;
+        }
     }
 }
