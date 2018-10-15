@@ -107,13 +107,7 @@ public class Tokenizer {
 
     public Vector getVector() {
         String vector = getNext();
-        String[] numbers = vector.split("[(,)]");
-        if (numbers.length != 4) {
-            System.out.println("FAILED: Got wrong amount of numbers in vector: " + vector + ";  " + Arrays.toString(numbers));
-            System.exit(0);
-        }
-        System.out.println("got vector " + vector + " as " + Arrays.toString(numbers));
-        return new Vector(Float.parseFloat(numbers[1]), Float.parseFloat(numbers[2]), Float.parseFloat(numbers[3]));
+        return Vector.fromString(vector);
     }
 
     public boolean moreTokens(){
