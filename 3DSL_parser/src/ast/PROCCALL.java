@@ -4,12 +4,12 @@ import ui.Main;
 
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
-import java.util.Dictionary;
+import java.util.Map;
 import java.util.Hashtable;
 
 public class PROCCALL extends STATEMENT {
     private String name;
-    private Dictionary<String, String> args;
+    private Map<String, String> args;
 
 
     @Override
@@ -20,14 +20,14 @@ public class PROCCALL extends STATEMENT {
 
         args = new Hashtable<>();
         while (!isEndOfBlock()){
-            args.put(tokenizer.getNext(), tokenizer.getNext());
+            Main.symbolTable.put(tokenizer.getNext(), tokenizer.getNext());
         }
-        System.out.println(args);
     }
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        return null;
+        BLOCK codeblock = (BLOCK) Main.symbolTable.get(name);
+        return codeblock.evaluate();
     }
 
     private Boolean isEndOfBlock() {

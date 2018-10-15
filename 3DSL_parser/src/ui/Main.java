@@ -16,10 +16,10 @@ public class Main {
     public static final String TAB = "%tab%";
 
     public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
-//        Tokenizer.makeTokenizer("markForTest.3dsl");
+        Tokenizer.makeTokenizer("reedTest.3dsl");
         // Tokenizer.makeTokenizer("mattTest.3dsl");
         // Tokenizer.makeTokenizer("markForTest.3dsl");
-        Tokenizer.makeTokenizer("rhodaTest.3dsl");
+        // Tokenizer.makeTokenizer("rhodaTest.3dsl");
 
 
 

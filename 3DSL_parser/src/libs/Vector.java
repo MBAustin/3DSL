@@ -4,15 +4,23 @@ import java.util.Arrays;
 
 public class Vector {
     public float a,b,c;
+    public String variable;
     public Vector(float a, float b, float c) {
         this.a = a;
         this.b = b;
         this.c = c;
     }
 
+    public Vector(String variable) {
+        this.variable = variable;
+    }
+
     public static Vector fromString(String str) {
         String[] numbers = str.split("[(,)]");
         if (numbers.length != 4) {
+            if (numbers.length == 1) {
+                return new Vector(str);
+            }
             System.out.println("FAILED: Got wrong amount of numbers in vector: " + str + ";  " + Arrays.toString(numbers));
             System.exit(0);
         }
