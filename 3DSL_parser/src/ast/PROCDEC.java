@@ -36,11 +36,11 @@ public class PROCDEC extends STATEMENT {
 
         codeblock = new BLOCK();
         codeblock.parse();
+        Main.symbolTable.put(nameOfProc, codeblock);
     }
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-//        Main.symbolTable.put(name,codeblock);
         return null;
     }
 }
