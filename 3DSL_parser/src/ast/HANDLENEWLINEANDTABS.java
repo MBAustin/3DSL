@@ -13,7 +13,7 @@ public class HANDLENEWLINEANDTABS extends STATEMENT {
             tokenizer.getAndCheckNext(Main.NEWLINE);
         }
         if (tokenizer.checkToken(Main.TAB)) {
-            tokenizer.checkToken(Main.TAB);
+            tokenizer.getAndCheckNext(Main.TAB);
         }
     }
 

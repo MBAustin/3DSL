@@ -28,7 +28,7 @@ public class Tokenizer {
 
     private void tokenize (){
         String tokenizedProgram = program;
-
+        tokenizedProgram = tokenizedProgram.replace("    ", "\t");
         tokenizedProgram = tokenizedProgram.replace("\t","\t ");
         tokenizedProgram = tokenizedProgram.replace("\n"," %newLine% ");
 
