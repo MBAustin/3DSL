@@ -12,13 +12,11 @@ public class Tokenizer {
 
 
     private static String program;
-    private static List<String> literals;
     private String[] tokens;
     private int currentToken;
     private static Tokenizer theTokenizer;
 
-    private Tokenizer(String filename, List<String> literalsList){
-        literals = literalsList;
+    private Tokenizer(String filename){
         try {
             program = new String(Files.readAllBytes(Paths.get(filename)), StandardCharsets.UTF_8);
         } catch (IOException e) {
@@ -122,9 +120,9 @@ public class Tokenizer {
         return currentToken<tokens.length;
     }
 
-    public static void makeTokenizer(String filename, List<String> literals){
+    public static void makeTokenizer(String filename){
         if (theTokenizer==null){
-            theTokenizer = new Tokenizer(filename,literals);
+            theTokenizer = new Tokenizer(filename);
         }
     }
 
