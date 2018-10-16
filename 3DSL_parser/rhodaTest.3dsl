@@ -1,19 +1,12 @@
 # This is a comment:
-set color of Object to (250,0,0)
-function ConeStep takes object, color:
-    move Object by (1,0,0)
-    rotate Object by (30,0,0)
-    scale Object by (0.8,0.8,0.8)
-    set color of Object to (1,2,3)
-call ConeStep with:
-    object MyCone
-    color Blue
+open new scene
+function ConeStep takes object:
+    move object by (1,0,0)
+    rotate object by (30,0,0)
+    scale object by (0.8,0.8,0.8)
 make a Cone called MyCone with:
     color (255,0,0)
-    radius 1
-    height 3
 clone MyCone as ConeGroup with:
     iterations  8
     step  ConeStep
 store (100,100,100) as LightGrey
-set color of Wall to LightGrey
