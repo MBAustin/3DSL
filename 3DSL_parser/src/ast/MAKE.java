@@ -56,7 +56,7 @@ public class MAKE extends STATEMENT {
             if (Vector.isVector(attrValue)){
                 Vector aV = Vector.fromString(attrValue);
                 if(attrName.equals("color")) {
-                    retVal += "setColor(\'" + name + "\', " + aV.a+ ", " + aV.b + ", " + aV.c + ")\n";
+                    retVal += "setColor(\'" + name + "\', " + aV.a/255.0+ ", " + aV.b/255.0 + ", " + aV.c/255.0 + ")\n";
                 }
                 else {
                     retVal += "cmds.setAttr(\'" + name + "." + attrName + "\', " + aV.a + ", " +
