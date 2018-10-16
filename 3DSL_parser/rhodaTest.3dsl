@@ -4,6 +4,9 @@ function ConeStep takes object:
     move object by (1,0,0)
     rotate object by (30,0,0)
     scale object by (0.8,0.8,0.8)
+    clone object as subClone with:
+        iterations 20
+        step ConeStep
 make a Cone called MyCone with:
     color (255,0,0)
 clone MyCone as ConeGroup with:

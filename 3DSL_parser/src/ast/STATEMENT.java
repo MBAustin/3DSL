@@ -50,6 +50,9 @@ public  abstract class STATEMENT extends Node {
         if (tokenizer.checkToken("clone")){
             return new CLONE();
         }
+        if (tokenizer.checkToken("save")){
+            return new SAVE();
+        }
 
 
 
