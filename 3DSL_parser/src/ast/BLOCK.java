@@ -39,23 +39,20 @@ public class BLOCK extends STATEMENT {
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
         String output = "";
         for (STATEMENT s : statements) {
-            // Add tab for each newline
             String temp = s.evaluate();
-            // temp = temp.replace("\n", "\n\t");
-
             output = output + temp + "\n";
         }
         return output;
     }
 
-//      Do we need this?
-    public String evaluate(String arg) throws FileNotFoundException, UnsupportedEncodingException {
-        param.evaluate();
-        Main.symbolTable.put(param.getName(), arg);
-        for (STATEMENT s : statements){
-            s.evaluate();
+    public String evaluateForLoop() throws FileNotFoundException, UnsupportedEncodingException {
+        String output = "";
+        for (STATEMENT s : statements) {
+            // Add tab for each newline
+            String temp = s.evaluate();
+             temp = temp.replace("\n", "\n\t");
         }
-        return retval;
+        return output;
     }
 
     private Boolean isEndOfBlock() {
