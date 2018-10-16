@@ -31,7 +31,10 @@ public class FOREACH extends STATEMENT {
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        return "for " + name +" in " + group + ":\n" + codeblock.evaluate();
+        String realGroup = Main.getValue(group);
+        // TODO get children from maya using realGroup
+        // TODO make for loop using name and realGroup
+        return "for " + name +" in " + realGroup + ":\n" + codeblock.evaluateForLoop();
     }
 
 
