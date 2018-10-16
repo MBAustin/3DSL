@@ -8,6 +8,9 @@ public  abstract class STATEMENT extends Node {
         if (tokenizer.checkToken("#")){
             return new COMMENT();
         }
+        if (tokenizer.checkToken("open")){
+            return new OPEN();
+        }
         if (tokenizer.checkToken("store")){
             return new DEC();
         }

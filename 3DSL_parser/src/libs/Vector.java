@@ -10,9 +10,15 @@ public class Vector {
         this.b = b;
         this.c = c;
     }
+    
+    
 
     public Vector(String variable) {
         this.variable = variable;
+    }
+
+    public static Boolean isVector(String str) {
+        return str.substring(0,1).equals("(");
     }
 
     public static Vector fromString(String str) {
