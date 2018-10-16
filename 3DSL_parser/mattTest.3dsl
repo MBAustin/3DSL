@@ -6,5 +6,7 @@ make a Sphere called mySphere with:
     scale (0.4,0.5,0.6)
 make a Cone called myCone
 make a Cube called myCube
+move myCube by (0,5,0)
 cut myCone out of mySphere
+move mySphere to myCube
 attach mySphere to myCube

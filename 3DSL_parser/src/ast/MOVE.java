@@ -29,10 +29,13 @@ public class MOVE extends STATEMENT {
         String realObject = Main.getValue(object);
         if (destObject.length() > 0) {
             String realDestObject = Main.getValue(destObject);
-        } else {
-            Vector realVector = Main.getVector(vector);
+            return "toVector = cmds.xform(\'" + realDestObject + "\', q=1, ws=1, rp=1)\n" +
+                    "cmds.xform(\'"+realObject+"\', relative=False, t=toVector)";
         }
-//        TODO evaluate move
-        return null;
+        else {
+            Vector realVector = Main.getVector(vector);
+            return "cmds.xform(\'"+realObject+"\', relative=True, t="+ realVector + ")";
+        }
+
     }
 }
