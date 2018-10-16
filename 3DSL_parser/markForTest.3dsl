@@ -1,3 +1,9 @@
 for each x in X:
 	cut Cutter out of x
 	attach x to YY
+
+store (160,82,45) as Brown
+make a Cone called MyCone with:
+	color Brown
+	position (0,0,0)
+	scale (2,2,2)

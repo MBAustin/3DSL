@@ -9,7 +9,7 @@ import java.io.UnsupportedEncodingException;
 public class MOVE extends STATEMENT {
     private String object;
     private Vector vector;
-    private String destObject;
+    private String destObject = "";
 
     @Override
     public void parse() {
@@ -27,10 +27,15 @@ public class MOVE extends STATEMENT {
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
         String realObject = Main.getValue(object);
-        String realDestObject = Main.getValue(destObject);
-        Vector realVector = Main.getVector(vector);
+        if (destObject.length() > 0) {
+            String realDestObject = Main.getValue(destObject);
+            return "toVector = cmds.xform(\'" + realDestObject + "\', q=1, ws=1, rp=1)\n" +
+                    "cmds.xform(\'"+realObject+"\', relative=False, t=toVector)";
+        }
+        else {
+            Vector realVector = Main.getVector(vector);
+            return "cmds.xform(\'"+realObject+"\', relative=True, t="+ realVector + ")";
+        }
 
-//        TODO evaluate move
-        return null;
     }
 }

@@ -10,15 +10,14 @@ public class Vector {
         this.b = b;
         this.c = c;
     }
-    
-    
 
-    public Vector(String variable) {
-        this.variable = variable;
-    }
-
+<<<<<<< HEAD
     public static Boolean isVector(String str) {
         return str.substring(0,1).equals("(");
+=======
+    public Vector(String variable) {
+        this.variable = variable;
+>>>>>>> master
     }
 
     public static Vector fromString(String str) {
@@ -32,9 +31,5 @@ public class Vector {
         }
         System.out.println("got vector " + str + " as " + Arrays.toString(numbers));
         return new Vector(Float.parseFloat(numbers[1]), Float.parseFloat(numbers[2]), Float.parseFloat(numbers[3]));
-    }
-
-    public  String toString() {
-        return "(" + this.a + ", " + this.b + ", " + this.c + ")";
     }
 }
