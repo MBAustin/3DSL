@@ -21,9 +21,9 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
 //        Tokenizer.makeTokenizer("reedTest.3dsl");
-         Tokenizer.makeTokenizer("mattTest.3dsl");
+//         Tokenizer.makeTokenizer("mattTest.3dsl");
         // Tokenizer.makeTokenizer("markForTest.3dsl");
-//         Tokenizer.makeTokenizer("rhodaTest.3dsl");
+         Tokenizer.makeTokenizer("rhodaTest.3dsl");
 
 
 
@@ -35,11 +35,23 @@ public class Main {
     }
 
     public static String getValue(String str) {
-        return Main.symbolTable.containsKey(str) ? (String) Main.symbolTable.get(str) : str;
+        // Recursively check
+        if (Main.symbolTable.containsKey(str)) {
+            return getValue((String) Main.symbolTable.get(str));
+        } else{
+            return str;
+        }
     }
 
     public static Vector getVector(Vector vector) {
-        return vector.variable == null ? vector : Vector.fromString((String) Main.symbolTable.get(vector.variable));
+        if (vector.variable == null) {
+            return vector;
+        } else {
+            return Main.getVector(Vector.fromString((String) Main.symbolTable.get(vector.variable)));
+        }
+
+
+//        return vector.variable == null ? vector : Vector.fromString((String) Main.symbolTable.get(vector.variable));
     }
 
 }
