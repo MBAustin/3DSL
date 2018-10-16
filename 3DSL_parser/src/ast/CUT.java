@@ -22,9 +22,11 @@ public class CUT extends STATEMENT {
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        String cutRename = object2 + "cut";
-        String retVal =  "cmds.rename(\'"+object2+"\', \'"+cutRename+"\')\n" +
-                "cmds.polyCBoolOp(\'"+object1+"\', \'"+cutRename+"\', op=2, n=\'"+object2+"\')";
+        String realObject1 = Main.getValue(object1);
+        String realObject2 = Main.getValue(object2);
+        String cutRename = realObject2 + "cut";
+        String retVal =  "cmds.rename(\'"+realObject2+"\', \'"+cutRename+"\')\n" +
+                "cmds.polyCBoolOp(\'"+realObject1+"\', \'"+cutRename+"\', op=2, n=\'"+realObject2+"\')";
         return retVal;
     }
 

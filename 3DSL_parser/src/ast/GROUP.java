@@ -37,7 +37,7 @@ public class GROUP extends STATEMENT {
         //System.out.println("objects: " + objects);
         ArrayList<String> objectList = new ArrayList<String>();
         for (String k:objects)
-            objectList.add("'" +k+ "'");
+            objectList.add("'" +Main.getValue(k)+ "'");
         //System.out.println("Printing the list");
         //for(String k:objectList)
         //    System.out.println(k);
