@@ -17,7 +17,7 @@ public class SAVE extends STATEMENT {
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        String retVal = "cmds.file( rename=\'"+fileName+"\' )\n" +
+        String retVal = "cmds.file( rename=\'"+fileName+".mb\' )\n" +
         "cmds.file( save=True, type='mayaAscii' )";
         return retVal;
     }
