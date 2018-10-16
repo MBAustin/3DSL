@@ -27,17 +27,37 @@ public class SET extends STATEMENT {
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
         String realObject = Main.getValue(object);
         String realProperty = Main.getValue(property);
-        // Check  if value is a vector
-        if (Vector.isVector(value)) {
-            Vector realValue = Vector.fromString(value);
-            // TODO evaluate a vector property
-            return null;
-        } else {
-            String realValue = Main.getValue(value);
-            // TODO evaluate a different property
-            return null;
+        String retVal;
+        String realValue = value;
+
+        if (!Vector.isVector(value)) {
+            realValue = Main.getValue(value);
         }
 
+        if (Vector.isVector(realValue)) {
+            Vector aV = Vector.fromString(realValue);
+            retVal = evaluateVectorProperty(realObject, realProperty, aV);
+        } else {
+            try {
+                double attrDouble = Double.parseDouble(realValue);
+                retVal = "cmds.setAttr(\'" + realObject + "." + realProperty + "\', " + attrDouble + ")\n";
+            }
+            catch (NumberFormatException e) {
+                retVal = "cmds.setAttr(\'" + realObject + "." + realProperty + "\'" + realValue + ")\n";
+            }
+        }
+        System.out.println(retVal);
+        return retVal;
+    }
 
+    public String evaluateVectorProperty(String object, String property, Vector value) {
+        String retVal;
+        if (property.equals("color")) {
+            retVal = "setColor("+object + "," + value.a+","+value.b+","+value.c+")\n";
+        } else {
+            retVal = "cmds.setAttr(\'" + object + "." + property + "\', " + value.a + ", " +
+                    value.b + ", " + value.c + ", type=\"double3\")\n";;
+        }
+        return retVal;
     }
 }
