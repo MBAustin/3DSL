@@ -40,7 +40,7 @@ public class CLONE extends STATEMENT {
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        String retVal = "";
+        String retVal = "cmds.group(\'"+object+"\', n=\'"+name+"\')";
         Main.symbolTable.put("object", object);
         for(int i=1; i <= iterations; i++) {
             if(i==1) {
