@@ -20,6 +20,8 @@ public class SCALE extends STATEMENT {
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        return "cmds.scale("+vector.a+","+vector.b+","+vector.c+",'"+object+"')";
+        Vector realVector = Main.getVector(vector);
+        String realObject = Main.getValue(object);
+        return "cmds.scale("+realVector.a+","+realVector.b+","+realVector.c+",'"+realObject+"')";
     }
 }
