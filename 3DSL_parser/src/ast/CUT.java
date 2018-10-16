@@ -22,13 +22,9 @@ public class CUT extends STATEMENT {
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        // TODO MATT can you do the python here. Cut object1 out of object2.
-        // I think you mentioned it would make a 3rd invisible object and attach it to object2?
-        System.out.println("Cut " + object1 + " out of " + object2);
         String cutRename = object2 + "cut";
         String retVal =  "cmds.rename(\'"+object2+"\', \'"+cutRename+"\')\n" +
                 "cmds.polyCBoolOp(\'"+object1+"\', \'"+cutRename+"\', op=2, n=\'"+object2+"\')";
-        System.out.println(retVal);
         return retVal;
     }
 

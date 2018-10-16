@@ -10,6 +10,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.lang.Integer.parseInt;
+
+
 public class Main {
     public static Map<String,Object> symbolTable = new HashMap<>();
     public static final String NEWLINE = "%newLine%";
