@@ -20,8 +20,8 @@ public class ROTATE extends STATEMENT {
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        String realObject = Main.symbolTable.containsKey(object) ? (String) Main.symbolTable.get(object) : object;
-        Vector realVector = vector.variable == null ? vector : Vector.fromString((String) Main.symbolTable.get(vector.variable));
+        String realObject = Main.getValue(object);
+        Vector realVector = Main.getVector(vector);
         return "cmds.rotate("+realVector.a+","+realVector.b+","+realVector.c+",'"+realObject+"')";
     }
 }
