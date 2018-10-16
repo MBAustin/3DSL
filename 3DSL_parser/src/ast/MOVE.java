@@ -26,6 +26,11 @@ public class MOVE extends STATEMENT {
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
+        String realObject = Main.getValue(object);
+        String realDestObject = Main.getValue(destObject);
+        Vector realVector = Main.getVector(vector);
+
+//        TODO evaluate move
         return null;
     }
 }

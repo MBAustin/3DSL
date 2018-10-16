@@ -37,13 +37,13 @@ public class BLOCK extends STATEMENT {
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        String output = "\t";
+        String output = "";
         for (STATEMENT s : statements) {
             // Add tab for each newline
             String temp = s.evaluate();
-            temp = temp.replace("\n", "\n\t");
+            // temp = temp.replace("\n", "\n\t");
 
-            output = output + temp;
+            output = output + temp + "\n";
         }
         return output;
     }

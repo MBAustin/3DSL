@@ -5,6 +5,8 @@ import ui.Main;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.StringJoiner;
+
 
 public class GROUP extends STATEMENT {
     // group {OBJECT}, {OBJECT}...  as <name>**
@@ -30,11 +32,17 @@ public class GROUP extends STATEMENT {
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
         // TODO Matt, add all objects in objects arrayList as children to new object called groupName
-        System.out.println("groupName: " + groupName);
-        System.out.println("objects: " + objects);
-
-        return null;
+        // TODO I think I did this correctly. Right now, it's printing the command.
+        //System.out.println("groupName: " + groupName);
+        //System.out.println("objects: " + objects);
+        ArrayList<String> objectList = new ArrayList<String>();
+        for (String k:objects)
+            objectList.add("'" +Main.getValue(k)+ "'");
+        //System.out.println("Printing the list");
+        //for(String k:objectList)
+        //    System.out.println(k);
+        System.out.println("cmds.group("+objectList.toString().replace("[","").replace("]","")+", name='"+groupName+"')");
+        return "cmds.group("+objectList.toString().replace("[","").replace("]","")+", name='"+groupName+"')";
     }
-
-
+    
 }

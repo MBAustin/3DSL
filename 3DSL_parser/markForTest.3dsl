@@ -1,2 +1,3 @@
 for each x in X:
-	attach x to Y
+	cut Cutter out of x
+	attach x to YY

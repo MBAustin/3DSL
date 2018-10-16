@@ -1,5 +1,6 @@
 package ast;
 
+import libs.Vector;
 import ui.Main;
 
 import java.io.FileNotFoundException;
@@ -24,8 +25,19 @@ public class SET extends STATEMENT {
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-//        System.out.println("Setting "+name+" to "+value);
-//        Main.symbolTable.put(name,value);
-        return null;
+        String realObject = Main.getValue(object);
+        String realProperty = Main.getValue(property);
+        // Check  if value is a vector
+        if (Vector.isVector(value)) {
+            Vector realValue = Vector.fromString(value);
+            // TODO evaluate a vector property
+            return null;
+        } else {
+            String realValue = Main.getValue(value);
+            // TODO evaluate a different property
+            return null;
+        }
+
+
     }
 }

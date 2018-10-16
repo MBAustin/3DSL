@@ -15,11 +15,19 @@ public class ROTATE extends STATEMENT {
         tokenizer.getAndCheckNext("rotate");
         object = tokenizer.getNext();
         tokenizer.getAndCheckNext("by");
+
         vector = tokenizer.getVector();
+
     }
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        return "cmds.rotate("+vector.a+","+vector.b+","+vector.c+",'"+object+"')";
+
+        String realObject = Main.getValue(object);
+        Vector realVector = Main.getVector(vector);
+
+        return "cmds.rotate("+realVector.a+","+realVector.b+","+realVector.c+",'"+realObject+"')";
+
+
     }
 }
