@@ -34,7 +34,7 @@ public class FOREACH extends STATEMENT {
         String realGroup = Main.getValue(group);
         // TODO get children from maya using realGroup
         // TODO make for loop using name and realGroup
-        return "for " + name +" in " + realGroup + ":\n" + codeblock.evaluateForLoop();
+        return "for " + name +" in " + realGroup + ":\n" + codeblock.evaluateForLoop(name);
     }
 
 

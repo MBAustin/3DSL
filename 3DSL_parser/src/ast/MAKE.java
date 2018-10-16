@@ -42,16 +42,16 @@ public class MAKE extends STATEMENT {
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        //        if (value.charAt(0) == '('){
-//            // todo: convert to vector
-//        }
-
-        //        System.out.println("Putting "+this.name+" into symbol table");
-//        Main.symbolTable.put(name,"");
         String retVal = "cmds.poly" + object + "(n=\'"+name+"\')\n";
         for(Map.Entry<String, String> entry : propertyMap.entrySet()) {
             String attrName = entry.getKey();
             String attrValue = entry.getValue();
+
+            if (!Vector.isVector(attrValue)) {
+                // Check if value is in symbol table
+                attrValue = Main.getValue(attrValue);
+            }
+
             // Check if the value is a vector
             if (Vector.isVector(attrValue)){
                 Vector aV = Vector.fromString(attrValue);

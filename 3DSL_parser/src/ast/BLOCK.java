@@ -45,12 +45,16 @@ public class BLOCK extends STATEMENT {
         return output;
     }
 
-    public String evaluateForLoop() throws FileNotFoundException, UnsupportedEncodingException {
-        String output = "";
+    public String evaluateForLoop(String forLoopVar) throws FileNotFoundException, UnsupportedEncodingException {
+        String output = "\t";
+
         for (STATEMENT s : statements) {
             // Add tab for each newline
             String temp = s.evaluate();
-             temp = temp.replace("\n", "\n\t");
+            temp = temp.replace("\n", "\n\t");
+            // replace forloop 'name' with name
+            temp = temp.replace("'" + forLoopVar + "'", forLoopVar);
+            output = output + temp + "\n\t";
         }
         return output;
     }
