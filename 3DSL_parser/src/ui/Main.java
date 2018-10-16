@@ -2,6 +2,7 @@ package ui;
 
 import ast.PROGRAM;
 import libs.Tokenizer;
+import libs.Vector;
 
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
@@ -31,6 +32,14 @@ public class Main {
         p.evaluate();
         System.out.println("completed successfully");
         System.out.println(symbolTable);
+    }
+
+    public static String getValue(String str) {
+        return Main.symbolTable.containsKey(str) ? (String) Main.symbolTable.get(str) : str;
+    }
+
+    public static Vector getVector(Vector vector) {
+        return vector.variable == null ? vector : Vector.fromString((String) Main.symbolTable.get(vector.variable));
     }
 
 }
