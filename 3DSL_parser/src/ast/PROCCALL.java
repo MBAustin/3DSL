@@ -11,7 +11,6 @@ public class PROCCALL extends STATEMENT {
     private String name;
     private Map<String, String> args;
 
-
     @Override
     public void parse() {
         tokenizer.getAndCheckNext("call");

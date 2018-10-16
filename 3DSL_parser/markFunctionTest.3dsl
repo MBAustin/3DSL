@@ -1,0 +1,6 @@
+function ConeStep takes object, color, vecW:
+	move Object by vecW
+	rotate Object by (30,0,0)
+	scale Object by (0.8,0.8,0.8)
+	set color of Object to (55,55,55)
+
