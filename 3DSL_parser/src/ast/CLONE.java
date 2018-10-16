@@ -39,7 +39,9 @@ public class CLONE extends STATEMENT {
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
         //System.out.println("cmds.duplicate('"+object+"', name='"+name+"')");
-        return "cmds.duplicate('"+object+"', name='"+name+"')";
+        String realObject = Main.getValue(object);
+        // TODO: add actual clone procedure
+        return "cmds.duplicate('"+realObject+"', name='"+name+"')";
     }
 
     public String getName(){return name;}
