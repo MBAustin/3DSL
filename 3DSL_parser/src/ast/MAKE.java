@@ -1,5 +1,6 @@
 package ast;
 
+import libs.Vector;
 import ui.Main;
 
 import java.util.LinkedHashMap;
@@ -47,7 +48,33 @@ public class MAKE extends STATEMENT {
 
         //        System.out.println("Putting "+this.name+" into symbol table");
 //        Main.symbolTable.put(name,"");
-        return null;
+        String retVal = "cmds.poly" + object + "(n=\'"+name+"\')\n";
+        for(Map.Entry<String, String> entry : propertyMap.entrySet()) {
+            String attrName = entry.getKey();
+            String attrValue = entry.getValue();
+            // Check if the value is a vector
+            if (Vector.isVector(attrValue)){
+                Vector aV = Vector.fromString(attrValue);
+                if(attrName.equals("color")) {
+                    retVal += "setColor(\'" + name + "\', " + aV.a+ ", " + aV.b + ", " + aV.c + ")\n";
+                }
+                else {
+                    retVal += "cmds.setAttr(\'" + name + "." + attrName + "\', " + aV.a + ", " +
+                            aV.b + ", " + aV.c + ", type=\"double3\")\n";
+                }
+            }
+            else {
+                try {
+                    double attrDouble = Double.parseDouble(attrValue);
+                    retVal += "cmds.setAttr(\'" + name + "." + attrName + "\', " + attrDouble + ")\n";
+                }
+                catch (NumberFormatException e) {
+                    retVal += "cmds.setAttr(\'" + name + "." + attrName + "\'" + attrValue + ")\n";
+                }
+            }
+        }
+        System.out.println(retVal);
+        return retVal;
     }
 
     public String getName(){return name;}

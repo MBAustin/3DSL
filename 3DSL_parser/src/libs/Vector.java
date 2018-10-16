@@ -10,6 +10,10 @@ public class Vector {
         this.c = c;
     }
 
+    public static Boolean isVector(String str) {
+        return str.substring(0,1).equals("(");
+    }
+
     public static Vector fromString(String str) {
         String[] numbers = str.split("[(,)]");
         if (numbers.length != 4) {
