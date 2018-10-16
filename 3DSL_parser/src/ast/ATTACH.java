@@ -20,7 +20,7 @@ public class ATTACH extends STATEMENT {
 
     @Override
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        String retval =  "cmds.parent(\'"+object1+"\', \'"+object2+"\')";
+        String retval =  "cmds.parent(\'"+Main.getValue(object1)+"\', \'"+Main.getValue(object2)+"\')";
         System.out.println(retval);
         return retval;
     }
