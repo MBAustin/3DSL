@@ -34,7 +34,7 @@ public class MOVE extends STATEMENT {
         }
         else {
             Vector realVector = Main.getVector(vector);
-            return "cmds.xform(\'"+realObject+"\', relative=True, t="+ realVector + ")";
+            return "cmds.xform(\'"+realObject+"\', relative=True, os=True, t="+ realVector + ")";
         }
 
     }

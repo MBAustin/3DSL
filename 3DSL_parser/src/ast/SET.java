@@ -35,6 +35,7 @@ public class SET extends STATEMENT {
         }
 
         if (Vector.isVector(realValue)) {
+            System.out.println("SET found vector with value: " + realValue);
             Vector aV = Vector.fromString(realValue);
             retVal = evaluateVectorProperty(realObject, realProperty, aV);
         } else {
@@ -53,7 +54,7 @@ public class SET extends STATEMENT {
     public String evaluateVectorProperty(String object, String property, Vector value) {
         String retVal;
         if (property.equals("color")) {
-            retVal = "setColor("+object + "," + value.a+","+value.b+","+value.c+")\n";
+            retVal = "setColor(\'"+object + "\'," + value.a+"/255.0,"+value.b+"/255.0,"+value.c+"/255.0)\n";
         } else {
             retVal = "cmds.setAttr(\'" + object + "." + property + "\', " + value.a + ", " +
                     value.b + ", " + value.c + ", type=\"double3\")\n";;

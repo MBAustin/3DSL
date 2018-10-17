@@ -26,7 +26,7 @@ public class ROTATE extends STATEMENT {
         String realObject = Main.getValue(object);
         Vector realVector = Main.getVector(vector);
 
-        return "cmds.xform(\'"+realObject+"\', relative=True, ro="+ realVector + ")";
+        return "cmds.xform(\'"+realObject+"\', relative=True, os=True, ro="+ realVector + ")";
 
 
     }

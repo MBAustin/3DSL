@@ -54,9 +54,10 @@ public class MAKE extends STATEMENT {
 
             // Check if the value is a vector
             if (Vector.isVector(attrValue)){
+                System.out.println("MAKE found vector with value: " + attrValue);
                 Vector aV = Vector.fromString(attrValue);
                 if(attrName.equals("color")) {
-                    retVal += "setColor(\'" + name + "\', " + aV.a/255.0+ ", " + aV.b/255.0 + ", " + aV.c/255.0 + ")\n";
+                    retVal += "setColor(\'" + name + "\', " + aV.a+ "/255.0, " + aV.b+"/255.0, " + aV.c + "/255.0)\n";
                 }
                 else {
                     retVal += "cmds.setAttr(\'" + name + "." + attrName + "\', " + aV.a + ", " +

@@ -3,7 +3,7 @@ package ui;
 import ast.PROGRAM;
 import libs.Tokenizer;
 import libs.Vector;
-
+import java.util.*;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
@@ -21,9 +21,9 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
 //        Tokenizer.makeTokenizer("reedTest.3dsl");
-//         Tokenizer.makeTokenizer("mattTest.3dsl");
+         Tokenizer.makeTokenizer("mattTest.3dsl");
         // Tokenizer.makeTokenizer("markForTest.3dsl");
-         Tokenizer.makeTokenizer("rhodaTest.3dsl");
+//         Tokenizer.makeTokenizer("rhodaTest.3dsl");
 
 
 
@@ -38,7 +38,14 @@ public class Main {
         // Recursively check
         if (Main.symbolTable.containsKey(str)) {
             return getValue((String) Main.symbolTable.get(str));
-        } else{
+        }
+//        else if (str.equals("random")){
+//            Vector myVector = new Vector((float) (Math.random() * 255.0),
+//                    (float) (Math.random() * 255.0), (float) (Math.random() * 255.0));
+//            System.out.println("VECTOR: " + myVector.toString());
+//            return myVector.toString();
+//        }
+        else{
             return str;
         }
     }
@@ -47,7 +54,10 @@ public class Main {
         if (vector.variable == null) {
             return vector;
         } else {
-            return Main.getVector(Vector.fromString((String) Main.symbolTable.get(vector.variable)));
+
+            Vector retVal = Main.getVector(Vector.fromString((String) Main.symbolTable.get(vector.variable)));
+            System.out.println("GOT VECTOR: " + retVal);
+            return retVal;
         }
 
 

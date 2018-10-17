@@ -26,6 +26,7 @@ public class PROGRAM extends Node{
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
         writer = new PrintWriter("output.py", "UTF-8");
         String boilerPlate = "import maya.cmds as cmds\n" +
+                "import random\n"+
                 "def setColor(obj, rVal, gVal, bVal):\n" +
                 "\tshd = cmds.shadingNode('lambert', asShader=True, n='%s_lmb' % obj)\n" +
                 "\tsg = cmds.sets(n='%s_sg' % obj, renderable=True, noSurfaceShader=True, empty=True)\n" +

@@ -24,9 +24,9 @@ public class CUT extends STATEMENT {
     public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
         String realObject1 = Main.getValue(object1);
         String realObject2 = Main.getValue(object2);
-        String cutRename = realObject2 + "cut";
+        String cutRename = realObject2 + "cut" + this.toString().split("@")[1];
         String retVal =  "cmds.rename(\'"+realObject2+"\', \'"+cutRename+"\')\n" +
-                "cmds.polyCBoolOp(\'"+realObject1+"\', \'"+cutRename+"\', op=2, n=\'"+realObject2+"\')";
+                "cmds.polyCBoolOp(\'"+cutRename+"\', \'"+realObject1+"\', op=2, n=\'"+realObject2+"\')";
         return retVal;
     }
 

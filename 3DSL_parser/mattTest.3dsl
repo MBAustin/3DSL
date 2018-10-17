@@ -1,12 +1,33 @@
-# this is a comment
+# Making a forest
 open new scene
-make a Sphere called mySphere with:
-    color (255,0,0)
-    rotate (25,5,1)
-    scale (0.4,0.5,0.6)
-make a Cone called myCone
-make a Cube called myCube
-move myCube by (0,5,0)
-cut myCone out of mySphere
-move mySphere to myCube
-attach mySphere to myCube
+make a Cube called Trunk with:
+    scale (1.5,6,1.5)
+    color (107,67,33)
+make a Cone called Crown with:
+    scale (2,3,2)
+    color (0,174,0)
+
+move Crown by (0,2,0)
+function moveCrown takes object:
+    move object by (0,0.75,0)
+
+clone Crown as Leaves with:
+    iterations 3
+    step moveCrown
+
+group Leaves, Trunk as Tree
+
+function forestRowFun takes object:
+    move object by (random3~7,random-3~3,0)
+    set color of object to (random0~50,random30~255,random0~50)
+
+function forestGridFun takes object:
+    move object by (0,0,random3~7)
+
+clone Tree as TreeRow with:
+    iterations 40
+    step forestRowFun
+
+clone TreeRow as Forest with:
+    iterations 40
+    step forestGridFun
